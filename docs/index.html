@@ -9,6 +9,25 @@
     <script src="https://unpkg.com/@jspsych/plugin-preload@1.1.0"></script>
     <link href="https://unpkg.com/jspsych@7.1.2/css/jspsych.css" rel="stylesheet" type="text/css" />
     <style>
+      #display_stage_background {
+        width: 100vw;
+        background-color: white;
+        z-index: -1;
+      }
+
+      #display_stage {
+        position: fixed;
+        left: 1vw;
+        top: 1vh;
+        height: 98vh;
+        width: 98vw;
+        background-color: white;
+        box-shadow: 1px 1px 1px #999;
+        border-radius: 15px;
+        z-index: 0;
+        overflow-y: hidden;
+        overflow-x: hidden; 
+        }       
         .button {
             background-color: #3f48cc; 
             border: none;
@@ -66,7 +85,7 @@
 
     /* initialize jsPsych */
     var jsPsych = initJsPsych({
-        //override_safe_mode: true,
+        timeline: timeline,
       on_finish: function() {
         jsPsych.data.displayData();
       }
@@ -100,8 +119,6 @@
             {stimulus:'<p style="font-size:60px;font-weight:bold;color:#3f48cc">+</p>', trial_duration: 1500, data: {type: 'fixation', correct_response: null}}
         ]
     }
-
-    timeline.push(stop_trial1);
 
     var stop_trial2 = {
         type: jsPsychHtmlButtonResponse,
