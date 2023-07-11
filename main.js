@@ -33,6 +33,7 @@ var timeline = [];
 var instructions = {
   type: jsPsychHtmlButtonResponse,
   stimulus: `
+    <p>TEST: this is running in the root folder</p>
     <p>The goal of this task is to correctly respond when the number presented on the screen is the same as the number that was presented right before it.
    </p><p>When you see a number that is the same as the number presented right before it, press the purple buton as quickly as possible.</p>
     <p>However, some numbers will turn orange a short time after they appear. Do NOT press the SPACEBAR in this case</p>
