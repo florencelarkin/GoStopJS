@@ -390,10 +390,10 @@ var task_procedure = {
 }
 timeline.push(task_procedure);
 
-/* define debrief */
+
 var complete_screen = {
   type: jsPsychHtmlButtonResponse,
   choices: ['FINISH'],
   stimulus: 'Press the button below to complete the task. Thank you!' }
 
-timeline.push(debrief_block); 
+timeline.push(complete_screen); 
