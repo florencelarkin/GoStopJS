@@ -5,11 +5,11 @@ JSPsych version of the GoStop task
 5 target trials, 5 stop trials and 20 novel trials
 
 Data recorded: 
--trial type (novel, target or stop)
--stimulus
--response (either null or 0)
--reaction time
--correct (true or false)
+	-trial type (novel, target or stop)
+	-stimulus
+	-response (either null or 0)
+	-reaction time
+	-correct (true or false)
 
 To put on qualtrics - 
 Follow this tutorial:
