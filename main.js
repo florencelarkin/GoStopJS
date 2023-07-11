@@ -391,20 +391,9 @@ var task_procedure = {
 timeline.push(task_procedure);
 
 /* define debrief */
-var debrief_block = {
+var complete_screen = {
   type: jsPsychHtmlButtonResponse,
   choices: ['FINISH'],
-  stimulus: function() {
+  stimulus: 'Press the button below to complete the task. Thank you!' }
 
-    var trials = jsPsych.data.get().filter({type: 'novel'}, {type: 'target'}, {type: 'stop'});
-    var correct_trials = trials.filter({correct: true});
-    var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
-    var rt = Math.round(correct_trials.select('rt').mean());
-
-    return `<p>You responded correctly on ${accuracy}% of the trials.</p>
-      <p>Your average response time was ${rt}ms.</p>
-      <p>Press the button below to complete the task. Thank you!</p>`;
-
-  }
-};
 timeline.push(debrief_block); 
