@@ -19,6 +19,7 @@ Differences from the tutorial/ Things to keep in mind:
 2. <base href="/GoStopJS/"> is needed in the index.html file for hosting github pages, but will break the task locally, so comment out this line when testing. Make sure the link in base href is the same name as your github repository
 3. Build github pages from the root directory, no need to create a docs folder.
 4. Everything can be in one index file
-5. For jspsych 7.0+, everywhere jspsych.init() is used, replace with var jspsych = initJsPsych({ //code here})
+5. Put any custom css in the css file (e.g. for a custom button), qualtrics won't recognize it from the index file
+6. For jspsych 7.0+, everywhere jspsych.init() is used, replace with var jspsych = initJsPsych({ //code here})
 
 qualtrics.js contains the javascript used in the question in Qualtrics
