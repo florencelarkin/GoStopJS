@@ -1,6 +1,9 @@
 let stopTrials = 5;
 let targetTrials = 5;
 let novelTrials = 10;
+let stimDuration = 500;
+let fixDuration = 1000;
+let interval = 150;
 
 function getStim() {
     var number = Math.floor(Math.random() * 90000) + 10000;
@@ -38,11 +41,11 @@ for (var i = 0; i < stopTrials; i++) {
         button_html: '<button class="button">%choice%</button>',
         response_ends_trial: false,
         timeline: [
-            {stimulus:'<p style="font-size:60px;font-weight:bold;color:#3f48cc">'+stopList[i]+'</p>', trial_duration: 1000, stimulus_duration: 1000, data: {type: 'novel', correct_response: null}},
-            {stimulus:'<p style="font-size:60px;font-weight:bold;color:#3f48cc">+</p>', trial_duration: 1500, stimulus_duration: 1500, data: {type: 'fixation', correct_response: null}},
-            {stimulus:'<p style="font-size:60px;font-weight:bold;color:#3f48cc">'+stopList[i]+'</p>', trial_duration: 200, stimulus_duration: 200, data: {type: 'stop', correct_response: null}},
-            {stimulus:'<p style="font-size:60px;font-weight:bold;color:#ffc90e">'+stopList[i]+'</p>', trial_duration: 800, stimulus_duration: 800, data: {type: 'stop', correct_response: null}},
-            {stimulus:'<p style="font-size:60px;font-weight:bold;color:#3f48cc">+</p>', trial_duration: 1500, stimulus_duration: 1500, data: {type: 'fixation', correct_response: null}}
+            {stimulus:'<p style="font-size:60px;font-weight:bold;color:#3f48cc">'+stopList[i]+'</p>', trial_duration: stimDuration, stimulus_duration: stimDuration, data: {type: 'novel', correct_response: null}},
+            {stimulus:'<p style="font-size:60px;font-weight:bold;color:#3f48cc">+</p>', trial_duration: fixDuration, stimulus_duration: fixDuration, data: {type: 'fixation', correct_response: null}},
+            {stimulus:'<p style="font-size:60px;font-weight:bold;color:#3f48cc">'+stopList[i]+'</p>', trial_duration: interval, stimulus_duration: interval, data: {type: 'stop', correct_response: null}},
+            {stimulus:'<p style="font-size:60px;font-weight:bold;color:#ffc90e">'+stopList[i]+'</p>', trial_duration: stimDuration - interval, stimulus_duration: stimDuration - interval, data: {type: 'stop', correct_response: null}},
+            {stimulus:'<p style="font-size:60px;font-weight:bold;color:#3f48cc">+</p>', trial_duration: fixDuration, stimulus_duration: fixDuration, data: {type: 'fixation', correct_response: null}}
         ],
         on_finish: function(data){
           console.log();
@@ -58,10 +61,10 @@ for (var i = 0; i < targetTrials; i++) {
         button_html: '<button class="button">%choice%</button>',
         response_ends_trial: false,
         timeline: [
-            {stimulus:'<p style="font-size:60px;font-weight:bold;color:#3f48cc">'+targetList[i]+'</p>', trial_duration: 1000, stimulus_duration: 1000, data: {type: 'novel', correct_response: null}},
-            {stimulus:'<p style="font-size:60px;font-weight:bold;color:#3f48cc">+</p>', trial_duration: 1500, stimulus_duration: 1500, data: {type: 'fixation', correct_response: null}},
-            {stimulus:'<p style="font-size:60px;font-weight:bold;color:#3f48cc">'+targetList[i]+'</p>', trial_duration: 1000, stimulus_duration: 1000, data: {type: 'target', correct_response: 0}},
-            {stimulus:'<p style="font-size:60px;font-weight:bold;color:#3f48cc">+</p>', trial_duration: 1500, stimulus_duration: 1500, data: {type: 'fixation', correct_response: null}}
+            {stimulus:'<p style="font-size:60px;font-weight:bold;color:#3f48cc">'+targetList[i]+'</p>', trial_duration: stimDuration, stimulus_duration: stimDuration, data: {type: 'novel', correct_response: null}},
+            {stimulus:'<p style="font-size:60px;font-weight:bold;color:#3f48cc">+</p>', trial_duration: fixDuration, stimulus_duration: fixDuration, data: {type: 'fixation', correct_response: null}},
+            {stimulus:'<p style="font-size:60px;font-weight:bold;color:#3f48cc">'+targetList[i]+'</p>', trial_duration: stimDuration, stimulus_duration: stimDuration, data: {type: 'target', correct_response: 0}},
+            {stimulus:'<p style="font-size:60px;font-weight:bold;color:#3f48cc">+</p>', trial_duration: fixDuration, stimulus_duration: fixDuration, data: {type: 'fixation', correct_response: null}}
         ],
         on_finish: function(data){
           console.log();
@@ -77,8 +80,8 @@ for (var i = 0; i < novelTrials; i++) {
           button_html: '<button class="button">%choice%</button>',
           response_ends_trial: false,
         timeline: [
-        {stimulus:'<p style="font-size:60px;font-weight:bold;color:#3f48cc">'+novelList[i]+'</p>', trial_duration: 1000,  stimulus_duration: 1000, data: {type: 'novel', correct_response: null}},
-        {stimulus:'<p style="font-size:60px;font-weight:bold;color:#3f48cc">+</p>', trial_duration: 1500,  stimulus_duration: 1500, data: {type: 'fixation', correct_response: null}},
+        {stimulus:'<p style="font-size:60px;font-weight:bold;color:#3f48cc">'+novelList[i]+'</p>', trial_duration: stimDuration,  stimulus_duration: stimDuration, data: {type: 'novel', correct_response: null}},
+        {stimulus:'<p style="font-size:60px;font-weight:bold;color:#3f48cc">+</p>', trial_duration: fixDuration,  stimulus_duration: fixDuration, data: {type: 'fixation', correct_response: null}},
         ],
         on_finish: function(data){
           console.log();
