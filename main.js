@@ -386,7 +386,7 @@ var novel_trial10 = {
 
 var task_procedure = {
     //shuffle fn returns timeline list of randomized trials e.g. (novel5, stop3, ...,target1, novel1)
-    timeline: shuffle([novel_trial1, novel_trial2, novel_trial3, novel_trial4, novel_trial5, novel_trial6, novel_trial7, novel_trial8, novel_trial9, target_trial1, target_trial2, target_trial3, target_trial4, target_trial5, stop_trial1, stop_trial2, stop_trial3, stop_trial4, stop_trial5]),
+    timeline: shuffle([novel_trial1, novel_trial2, novel_trial3, novel_trial4, novel_trial5, novel_trial6, novel_trial7, novel_trial8, novel_trial9, novel_trial10, target_trial1, target_trial2, target_trial3, target_trial4, target_trial5, stop_trial1, stop_trial2, stop_trial3, stop_trial4, stop_trial5]),
 }
 timeline.push(task_procedure);
 
