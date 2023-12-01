@@ -2,12 +2,12 @@
 <html>
   <head>
     <title>GoStop</title>
-    <base href="/GoStopJS/">
     <script src="./jspsych/jspsych.js"></script>
     <script src="./jspsych/plugin-html-keyboard-response.js"></script>
     <script src="./jspsych/plugin-html-button-response.js"></script>
     <link href="./jspsych/jspsych.css" rel="stylesheet" type="text/css" />
     <script src="./main.js"></script>
+    <script src="./lib/taskflow/client.js"></script>
     <style>
       #display_stage_background {
         width: 100vw;
@@ -55,10 +55,29 @@
     /* initialize jsPsych */
     var jsPsych = initJsPsych({
         //timeline: timeline,
-      on_finish: function() {
-        jsPsych.data.displayData();
-    }
+        on_finish: async function() {
+          
+        if (window.location !== window.parent.location) {
+                // running on server so send data to the server
+                var measure = await TaskFlow.Client.Measure.get();
+                // get data out of jspsych
+                var task_data = JSON.stringify(jsPsych.data.get().values());
+                measure.complete = true;
+                measure.json = task_data;
+                // sync measure with server
+                await TaskFlow.Client.Measure.set(measure);
+                // continue on!
+                TaskFlow.Client.Measure.end();
+                    }       
+            else {
+                // running local
+                // display the data
+                jsPsych.data.displayData();
+                    }
+        
+      }
     });
+
     /*start task*/
       jsPsych.run(timeline);
     
